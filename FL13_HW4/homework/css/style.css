@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #777;
+  font-family: "Merriweather", serif;
+}
+a {
+  text-decoration: none;
+}
+.logo {
+  font-size: 16pt;
+  letter-spacing: 3px;
+}
+header {
+  font-size: 14pt;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  background: white;
+}
+nav li {
+  letter-spacing: 1px;
+  margin-right: 50px;
+  display: inline-block;
+}
+nav a:hover {
+  color: #bfba55;
+}
+
+.hero {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../img/home-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero h1 {
+  color: white;
+  font-size: 4em;
+  margin-bottom: 15px;
+}
+.hero h2 {
+  letter-spacing: 3px;
+  font-size: 1em;
+  color: #bfba55;
+  font-weight: 400;
+}
+.btn {
+  display: inline-block;
+  background-color: white;
+  padding: 1em 2em;
+  margin-top: 50px;
+  border: 1px solid #777;
+  border-radius: 50px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+.post {
+  width: 50vw;
+  margin: 10em auto 10em auto;
+  text-align: justify;
+  line-height: 2em;
+}
+
+.post img {
+  width: 100%;
+}
+.post h2 {
+  color: black;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+.author-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2em;
+}
+.author-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+}
+.author-info p {
+  margin-left: 1em;
+}
+footer {
+  display: flex;
+  justify-content: space-around;
+  background: #000;
+}
+footer div {
+  width: 25vw;
+  padding: 100px 0;
+}
+footer p {
+  margin-top: 1em;
+  font-weight: 400;
+  line-height: 2em;
+  font-style: normal;
+}
+footer h2 {
+  color: white;
+}
