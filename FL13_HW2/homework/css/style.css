@@ -100,8 +100,14 @@
   background: #76cdd7;
   transition: 0.3s;
 }
-.contact-form button:hover {
+.contact-form button {
+  float: right;
   border-radius: 0;
+  border: 1px solid lightseagreen;
+  color: lightseagreen;
+  background-color: #fff;
+}
+.contact-form button:hover {
   border: 0;
   background-color: lightseagreen;
   color: white;

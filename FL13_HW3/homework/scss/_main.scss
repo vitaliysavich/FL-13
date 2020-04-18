@@ -1,0 +1,209 @@
+@mixin paragraph($color) {
+  line-height: 1.5em;
+  font-weight: normal;
+  font-family: $par-font;
+  color: $color;
+}
+@mixin links($color, $size) {
+  font-size: $size;
+  font-family: $header-font;
+  color: $color;
+}
+@mixin button {
+  padding: 12px 45px;
+  font-family: $header-font;
+  font-weight: 600;
+  font-size: 18px;
+  color: white;
+  background-color: color(button);
+  border: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: color(body-bg);
+  position: relative;
+}
+header {
+  height: 100vh;
+  background-image: $bg-image;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom-right-radius: 40%;
+  text-align: left;
+  padding-left: 10vw;
+  .header_heading {
+    color: color(font-dark);
+    position: relative;
+    z-index: 1;
+    font-family: $header-font;
+    font-size: 5em;
+    font-weight: 700;
+    padding-top: 1em;
+    width: 600px;
+    &::after {
+      content: "";
+      width: 340px;
+      height: 55px;
+      background: color(square);
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      bottom: 4%;
+    }
+  }
+  .header_text {
+    white-space: pre-line;
+    @include paragraph(color(font-dark));
+  }
+  button {
+    margin-top: 100px;
+    @include button();
+  }
+  a {
+    margin-left: 10em;
+    @include links(white, 20px);
+  }
+}
+.landing-logo {
+  text-align: center;
+  display: flex;
+
+  p {
+    margin-top: 20px;
+    margin-left: 23px;
+    font-family: $par-font;
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 25px;
+    color: color(font-dark);
+  }
+  img {
+    padding-top: 15px;
+    height: 50px;
+    width: 50px;
+  }
+  span {
+    font-size: 14px;
+    font-weight: normal;
+  }
+}
+main {
+  .section_text {
+    padding: 50px;
+    width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    font-family: $header-font;
+    font-size: 48px;
+    font-weight: 600;
+    text-align: center;
+    color: color(font-dark);
+    &::after {
+      content: "";
+      width: 215px;
+      height: 55px;
+      background: color(square);
+      position: absolute;
+      z-index: -1;
+      right: 125px;
+    }
+  }
+  .section_card_wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    .section_card {
+      display: flex;
+      background-color: color(card-bg);
+      text-align: center;
+      border-radius: 5px;
+      margin-top: 30px;
+      height: 250px;
+      &:last-child {
+        margin-bottom: 200px;
+      }
+      .section_card_img {
+        width: 100%;
+        margin: 15px;
+        border-radius: 5px;
+      }
+      .section_card_text {
+        text-align: justify;
+        @include paragraph(color(font-light));
+        margin: 20px 0;
+      }
+      .section_card_right_container {
+        padding: 40px 120px 20px 120px;
+      }
+      .section_card_heading {
+        font-weight: 600;
+        font-family: $header-font;
+        font-size: 24px;
+        color: white;
+      }
+      .section_link {
+        text-align: center;
+        @include links(color(font-light), 18px);
+      }
+    }
+  }
+  .section_banner {
+    display: flex;
+    justify-content: space-around;
+    max-width: 950px;
+    height: 150px;
+    border-radius: 5px;
+    margin: 0 auto;
+    background: linear-gradient(0.25turn, color(grad-left), color(grad-right));
+  }
+  .section_banner_heading {
+    padding: 30px 0 0 0;
+    width: 100%;
+    font-size: 32px;
+    font-weight: 600;
+    &::after {
+      width: 63px;
+      height: 45px;
+      bottom: 5px;
+      right: 232px;
+    }
+    @extend .section_text;
+  }
+  .section_banner_text {
+    margin-top: 20px;
+    @include paragraph(color(font-light));
+  }
+  button {
+    margin: auto 0;
+    height: 45px;
+    @include button();
+  }
+}
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: -9%;
+  z-index: -1;
+  background-color: color(card-bg);
+  padding-top: 150px;
+  padding-bottom: 50px;
+  .landing-logo p {
+    color: color(font-light);
+  }
+  .footer-wrap {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    @include paragraph(color(font-light));
+    .footer_text {
+      align-self: flex-start;
+      width: 350px;
+    }
+  }
+}

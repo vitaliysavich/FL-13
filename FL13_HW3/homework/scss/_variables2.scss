@@ -1,0 +1,21 @@
+$header-font: "Source Sans Pro", sans-serif;
+$par-font: "Fresca", sans-serif;
+$bg-image: url("../img/m-h-night.jpg");
+$colors: (
+  font-dark: #ffffff,
+  font-light: #d1d1d1,
+  square: #ff4e33,
+  button: #e3ac00,
+  card-bg: #3b3f50,
+  body-bg: #21232e,
+  grad-left: #e3ac01,
+  grad-right: #8a2a51,
+);
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $colors.";
+  @return null;
+}
