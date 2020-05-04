@@ -1,6 +1,6 @@
 function convert(...array) {
   for (let i = 0; i < array.length; i++) {
-    if (typeof array[i] === "number") {
+    if (typeof array[i] === 'number') {
       array[i] = String(array[i]);
     } else {
       array[i] = +array[i];
@@ -44,7 +44,7 @@ function containsValue(array, val) {
 }
 
 function flipOver(string) {
-  let flipString = "";
+  let flipString = '';
   for (let i = string.length - 1; i >= 0; i--) {
     flipString += string[i];
   }
@@ -88,19 +88,19 @@ function formatDate(date) {
   let year = date.getFullYear();
   let month = date.getMonth() + 1;
   if (month < 10) {
-    month = "0" + month;
+    month = '0' + month;
   }
   let day = date.getDate();
   if (day < 10) {
-    day = "0" + day;
+    day = '0' + day;
   }
   let hours = date.getHours();
   if (hours < 10) {
-    hours = "0" + hours;
+    hours = '0' + hours;
   }
   let minutes = date.getMinutes();
   if (minutes < 10) {
-    minutes = "0" + minutes;
+    minutes = '0' + minutes;
   }
 
   return `${year}/${month}/${day} ${hours}:${minutes}`;
