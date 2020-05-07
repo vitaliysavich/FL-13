@@ -102,6 +102,5 @@ function formatDate(date) {
   if (minutes < 10) {
     minutes = '0' + minutes;
   }
-
   return `${year}/${month}/${day} ${hours}:${minutes}`;
 }
