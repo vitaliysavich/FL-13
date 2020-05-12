@@ -61,7 +61,7 @@ function createTreeDOM(arr) {
     let li = document.createElement('li');
     if (el.folder) {
       li.innerHTML = `<span class="folder"><span class="material-icons" style="color:orange">folder</span>
-      <span class="title">${el.title}</span></span>`;
+      <input class="text" value=${el.title} disabled></span>`;
       if (el.children) {
         let subUl = createTreeDOM(el.children);
         li.append(subUl);
@@ -75,7 +75,8 @@ function createTreeDOM(arr) {
     } else {
       li.innerHTML = `<span>
     <span class="material-icons" style="color:#808080">insert_drive_file</span>
-    <span class="title">${el.title}</span></span>`;
+    <input class="text" value=${el.title} disabled>
+    </span>`;
     }
     ul.append(li);
   });
@@ -122,21 +123,40 @@ rootNode.addEventListener(
     event.preventDefault();
     menu.style.top = `${event.clientY}px`;
     menu.style.left = `${event.clientX}px`;
-    if (event.target.tagName === 'SPAN') {
+    if (event.target.tagName === 'SPAN' || event.target.tagName === 'INPUT') {
       menu.classList.add('active');
+      menu.querySelector('#rename').addEventListener('click', () => {
+        let ren = event.target;
+        ren.disabled = false;
+        ren.focus();
+        ren.select();
+      });
+      menu.querySelector('#del').addEventListener('click', () => {
+        let del = event.target.parentNode;
+        del.remove();
+      });
     } else {
       menu.hidden = false;
     }
   },
   false
 );
-
+menu.addEventListener(
+  'click',
+  (event) => {
+    menu.classList.remove('active');
+    menu.hidden = true;
+    event.stopPropagation();
+  },
+  false
+);
 document.addEventListener(
   'click',
   (event) => {
     if (event.button !== 2) {
       menu.classList.remove('active');
       menu.hidden = true;
+      rootNode.querySelector('.text').disabled = true;
     }
   },
   false

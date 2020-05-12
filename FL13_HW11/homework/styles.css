@@ -41,3 +41,9 @@ ul > li > span:hover {
 #menu.active > li:hover {
   background: rgba(191, 191, 191, 0.6);
 }
+.text {
+  border: none;
+  background: none;
+  position: relative;
+  top: -5px;
+}
