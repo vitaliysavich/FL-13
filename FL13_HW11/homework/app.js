@@ -69,7 +69,7 @@ function createTreeDOM(arr) {
       } else {
         let empty = document.createElement('li');
         empty.innerHTML = '<i>Folder is empty</i>';
-        li.append(empty);
+        li.firstChild.append(empty);
         empty.hidden = true;
       }
     } else {
@@ -83,15 +83,22 @@ function createTreeDOM(arr) {
   return ul;
 }
 rootNode.onclick = function (event) {
-  if (event.target.className !== 'folder') {
+  let childrenContainer;
+  let icon;
+  if (event.target.className === 'folder') {
+    childrenContainer = event.target.parentNode.querySelector('ul');
+    icon = event.target.firstChild;
+  } else if (event.target.parentNode.className === 'folder') {
+    childrenContainer = event.target.parentNode.parentNode.querySelector('ul');
+    icon = event.target.parentNode.firstChild;
+  } else {
     return;
   }
-  let childrenContainer = event.target.parentNode.querySelector('ul');
   if (!childrenContainer) {
     childrenContainer = event.target.parentNode.querySelector('li');
   }
+  console.log(childrenContainer);
   childrenContainer.hidden = !childrenContainer.hidden;
-  let icon = event.target.firstChild;
   if (childrenContainer.hidden) {
     icon.innerHTML = 'folder';
   } else {
@@ -132,7 +139,7 @@ rootNode.addEventListener(
         ren.select();
       });
       menu.querySelector('#del').addEventListener('click', () => {
-        let del = event.target.parentNode;
+        let del = event.target.parentNode.parentNode;
         del.remove();
       });
     } else {
